@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
 <title>IMPÉRIO — IA para TikTok Shop</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -32,8 +32,9 @@ body{
 /* HERO */
 .hero{
   position:relative;
-  height:100svh;
-  max-height:800px;
+  height:92vw;
+  max-height:580px;
+  min-height:420px;
   overflow:hidden;
 }
 
@@ -43,7 +44,7 @@ body{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center 10%;
+  object-position:center 5%;
 }
 
 .hero-grad{
@@ -158,7 +159,7 @@ body{
 .panels{
   max-width:480px;
   margin:0 auto;
-  padding:32px 20px 60px;
+  padding:28px 16px 80px;
 }
 
 .panel{display:none;}
@@ -196,7 +197,7 @@ body{
   background:var(--card);
   border:1px solid var(--border);
   border-radius:16px;
-  padding:20px;
+  padding:16px;
   margin-bottom:12px;
 }
 
@@ -231,7 +232,7 @@ input:focus,textarea:focus,select:focus{
 select option{background:#161616;}
 textarea{min-height:86px;line-height:1.55;}
 
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
 
 .sep{height:1px;background:var(--border);margin:16px 0;}
 
@@ -509,7 +510,7 @@ async function run(i){
     const r=await fetch("https://imperio-api.jaque-lufranio.workers.dev",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,system:SYS[i],messages:[{role:"user",content:userPrompt(i)}]})
+      body:JSON.stringify({model:"claude-haiku-4-5",max_tokens:1000,system:SYS[i],messages:[{role:"user",content:userPrompt(i)}]})
     });
     const d=await r.json();
     const txt=d.content?.[0]?.text||"Erro ao gerar.";
