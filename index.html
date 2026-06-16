@@ -506,7 +506,7 @@ async function run(i){
   btn.disabled=true;btn.textContent="Gerando...";
   out.classList.add("show");body.textContent="";dot.classList.remove("done");
   try{
-    const r=await fetch("https://api.anthropic.com/v1/messages",{
+    const r=await fetch("https://imperio-api.jaque-lufranio.workers.dev",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,system:SYS[i],messages:[{role:"user",content:userPrompt(i)}]})
