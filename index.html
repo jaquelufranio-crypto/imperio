@@ -11,9 +11,9 @@
 html{-webkit-font-smoothing:antialiased;}
 
 :root{
-  --bg:#0a0a0a;
-  --surface:#111111;
-  --card:#161616;
+  --bg:#0c0c10;
+  --surface:#0c0c10;
+  --card:#141418;
   --border:rgba(255,255,255,0.06);
   --pink:#ff2d55;
   --cyan:#25f4ee;
@@ -23,7 +23,7 @@ html{-webkit-font-smoothing:antialiased;}
 }
 
 body{
-  background:var(--bg);
+  background:#0c0c10;
   color:var(--white);
   font-family:'Inter',sans-serif;
   overflow-x:hidden;
@@ -55,7 +55,12 @@ body{
 
 @media(max-width:480px){
   .hero-img{
-    object-position:50% 0%;
+    object-fit:cover;
+    object-position:center 0%;
+    transform:scale(0.82);
+    transform-origin:top center;
+    width:122%;
+    left:-11%;
   }
 }
 
