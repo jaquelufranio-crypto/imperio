@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IMPÉRIO — IA para TikTok Shop</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -26,15 +26,14 @@ body{
   background:var(--bg);
   color:var(--white);
   font-family:'Inter',sans-serif;
-  min-height:100vh;
+  overflow-x:hidden;
 }
 
 /* HERO */
 .hero{
   position:relative;
-  height:92vw;
-  max-height:580px;
-  min-height:420px;
+  height:100svh;
+  max-height:800px;
   overflow:hidden;
 }
 
@@ -44,7 +43,7 @@ body{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center 5%;
+  object-position:center 10%;
 }
 
 .hero-grad{
@@ -116,13 +115,10 @@ body{
   max-width:280px;
 }
 
-/* NAV */
+/* NAV — sem sticky para não pular com teclado */
 .nav{
   background:var(--bg);
   border-bottom:1px solid var(--border);
-  position:sticky;
-  top:0;
-  z-index:50;
 }
 
 .nav-inner{
@@ -211,6 +207,7 @@ label{
   margin-bottom:7px;
 }
 
+/* font-size 16px evita zoom automático no iOS */
 input,textarea,select{
   width:100%;
   background:rgba(255,255,255,0.03);
@@ -218,7 +215,7 @@ input,textarea,select{
   border-radius:10px;
   color:#fff;
   padding:12px 13px;
-  font-size:14px;
+  font-size:16px;
   font-family:'Inter',sans-serif;
   outline:none;
   transition:border-color 0.15s, box-shadow 0.15s;
@@ -299,7 +296,6 @@ textarea{min-height:86px;line-height:1.55;}
   white-space:pre-wrap;
 }
 
-/* FOOTER */
 .footer{
   text-align:center;
   padding:0 0 32px;
@@ -497,6 +493,7 @@ function userPrompt(i){
 function go(i){
   document.querySelectorAll(".nav-item").forEach((t,j)=>t.classList.toggle("active",i===j));
   document.querySelectorAll(".panel").forEach((p,j)=>p.classList.toggle("active",i===j));
+  window.scrollTo({top:document.querySelector(".nav").offsetTop, behavior:"smooth"});
 }
 
 async function run(i){
